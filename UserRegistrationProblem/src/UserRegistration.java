@@ -1,7 +1,6 @@
 /**
- * Check valid phone number
- * e.g. 91 9919819801
- * Country code followed by space and 10 digit number
+ * Check valid password
+ * Rule 1: minimum 8 characters
  *
  * @author: SAYANI KOLEY
  * @since: 28.06.2021
@@ -17,6 +16,7 @@ public class UserRegistration {
 
         email();
         phoneNumber();
+        password();
     }
     // validate first name
     public static boolean firstName( String firstName ) {
@@ -46,6 +46,17 @@ public class UserRegistration {
             System.out.println("Given phone number is valid");
         } else {
             System.out.println("Given phone number is not valid");
+        }
+    }
+    //validate given password
+    public static void password() {
+        String password = "abcd#123";
+        String regex = "[A-Za-z0-9@_#$%!]{8,}";
+        boolean result = password.matches(regex);
+        if(result) {
+            System.out.println("Given password is valid");
+        } else {
+            System.out.println("Given password is not valid");
         }
     }
 }
