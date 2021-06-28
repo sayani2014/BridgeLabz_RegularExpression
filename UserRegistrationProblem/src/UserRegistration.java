@@ -1,8 +1,12 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Check valid password
  * Rule 1: minimum 8 characters
  * Rule 2: should have atleast 1 upper case character
  * Rule 3: should have atleast 1 numeric number
+ * Rule 4: should have exactly 1 special character
  *
  * @author: SAYANI KOLEY
  * @since: 28.06.2021
@@ -52,8 +56,9 @@ public class UserRegistration {
     }
     //validate given password
     public static void password() {
-        String password = "abCd#1aB";
-        String regex = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}";
+        String password = "abCd$123";
+        String regex = "^(?=.*[0-9])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$)(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+
         boolean result = password.matches(regex);
         if(result) {
             System.out.println("Given password is valid");
