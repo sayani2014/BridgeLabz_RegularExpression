@@ -39,17 +39,13 @@ public class ValidateEmail {
         emails.add("abc@gmail.com.1a");
         emails.add("abc@gmail.com.aa.au");
 
-        //String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}";
-        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,3}";
+        String regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:([0-9]*|[a-zA-Z]{3,5})\\.)+[a-zA-Z]{2,3}$";
+
         Pattern pattern = Pattern.compile(regex);
 
         for(String email : emails){
             Matcher matcher = pattern.matcher(email);
-            if(matcher.matches())
-                System.out.println("Valid email: "+email +" : "+ matcher.matches());
-            else {
-                System.out.println("Invalid email: " + email + " : " + matcher.matches());
-            }
+            System.out.println(email +" : "+ matcher.matches());
         }
     }
 }
