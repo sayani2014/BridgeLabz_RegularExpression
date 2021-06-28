@@ -1,8 +1,8 @@
 /**
- * Check valid email
- * e.g. abc.xyz@bl.co.in
- * 3 mandatory parts(abc, bl, co) and 2 optional parts(xyz, in) with precise @ and . positions.
- * 
+ * Check valid phone number
+ * e.g. 91 9919819801
+ * Country code followed by space and 10 digit number
+ *
  * @author: SAYANI KOLEY
  * @since: 28.06.2021
  */
@@ -16,6 +16,7 @@ public class UserRegistration {
         System.out.println(lastName("Abc"));
 
         email();
+        phoneNumber();
     }
     // validate first name
     public static boolean firstName( String firstName ) {
@@ -34,6 +35,17 @@ public class UserRegistration {
             System.out.println("Given email-id is valid");
         } else {
             System.out.println("Given email-id is not valid");
+        }
+    }
+    //validate given phone number
+    public static void phoneNumber() {
+        String phone = "91 9919819801";
+        String regex = "[0-9]{2}[\s][0-9]{10}";
+        boolean result = phone.matches(regex);
+        if(result) {
+            System.out.println("Given phone number is valid");
+        } else {
+            System.out.println("Given phone number is not valid");
         }
     }
 }
